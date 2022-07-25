@@ -5,3 +5,4 @@ terraform.tfstate
 .terraform.lock.hcl
 .terraform
 .vscode
+__pycache__
