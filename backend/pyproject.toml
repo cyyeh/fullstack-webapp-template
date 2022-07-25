@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["ChihYu Yeh <chihyu.jimmy.yeh@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = {version = "^22.6.0", allow-prereleases = true}
+isort = "^5.10.1"
+djhtml = "^1.5.1"
+mypy = "^0.971"
+flake8 = "^4.0.1"
+flake8-print = "^5.0.0"
+pep8-naming = "^0.13.1"
+vulture = "^2.5"
+bandit = "^1.7.4"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.isort]
+combine_as_imports = true
+force_grid_wrap = 0
+include_trailing_comma = true
+known_first_party = "backend"
+line_length = 100
+multi_line_output = 3
+no_lines_before = "LOCALFOLDER"
+order_by_type = false
+
+[tool.mypy]
+allow_redefinition = true
+disallow_untyped_defs = true
+warn_unused_ignores = true
+
+[tool.vulture]
+min_confidence = 100
+
+[tool.pytest.ini_options]
+addopts = "--showlocals"
+
+[tool.poetry.scripts]
+test_ci = "scripts:test_ci"
+recreate_db = "scripts:recreate_db"
+test = "scripts:test"
+lint = "scripts:lint"
+format = "scripts:format"
+reformat = "scripts:reformat"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
